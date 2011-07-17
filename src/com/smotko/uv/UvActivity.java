@@ -33,20 +33,30 @@ public class UvActivity extends Activity {
                 
     }
     
-    public void getData() throws Throwable{
-	   URL url = new URL("http://smotko.si");
-	   URLConnection urlConnection = url.openConnection();
-	   BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-	   StringBuilder builder = new StringBuilder();
-	   String line = "";
+    public void getData(double lat, double lon){
+    	
+    	try{
+    		String address = "http://www.temis.nl/uvradiation/nrt/uvindex.php?lon=" + Double.toString(lon)
+    					   + "&lat=" + Double.toString(lat);
 
-	   TextView label = (TextView) findViewById(R.id.label);
-	   while ((line = br.readLine()) != null) {
-		   
-	       builder.append(line);
-	   }
-	   String result = builder.toString();
-	   label.setText(result);
+			URL url = new URL(address);
+			URLConnection urlConnection = url.openConnection();
+			BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+			String line = "";
+			
+			TextView label = (TextView) findViewById(R.id.label);
+			while ((line = br.readLine()) != null) {
+				if (line.contains("    <td align=right nowrap>")){
+					line = line.substring(28, 31);
+					break;
+				}
+			}
+
+			label.setText(line);
+    	}
+    	catch (Exception e) {
+			// TODO: handle exception
+		}
     }    
     public void getLocation(){
 		// Acquire a reference to the system Location Manager
@@ -82,13 +92,9 @@ public class UvActivity extends Activity {
     
     public void gotLocation(Location location){
     	TextView label = (TextView) findViewById(R.id.label);
-    	
-        try {
-			getData();
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		getData(location.getLatitude(), location.getLongitude());
+
     	
     	
     	/*

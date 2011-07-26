@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.location.Location;
@@ -15,11 +15,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class UvActivity extends ListActivity {
 
@@ -34,20 +31,19 @@ public class UvActivity extends ListActivity {
 
 		setContentView(R.layout.main);
 
-		setListAdapter(new MyAdapter(this, R.layout.list_item,
-				SKIN_TYPES, "30"));
+		setListAdapter(new MyAdapter(this, R.layout.list_item, SKIN_TYPES, "30"));
 
-		ListView lv = getListView();
-		lv.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-			}
-		});
-
-		TextView label = (TextView) findViewById(R.id.label);
-		label.setText("GETTING LOCATION");
-
-		getLocation();
+//		ListView lv = getListView();
+//		lv.setOnItemClickListener(new OnItemClickListener() {
+//			public void onItemClick(AdapterView<?> parent, View view,
+//					int position, long id) {
+//			}
+//		});
+//
+//		TextView label = (TextView) findViewById(R.id.label);
+//		label.setText("GETTING LOCATION");
+//
+//		getLocation();
 
 	}
 
@@ -127,37 +123,51 @@ public class UvActivity extends ListActivity {
 		 * Double.toString(location.getAltitude()));
 		 */
 	}
-	
-	
+
 	private class MyAdapter extends ArrayAdapter<String> {
 
-        private ArrayList<String> items;
-        private String uv;
+		private String[] items;
+		private String uv;
+		private final Activity context;
 
-        public MyAdapter(Context context, int textViewResourceId, ArrayList<String> items, String uv) {
-                super(context, textViewResourceId, items);
-                this.items = items;
-                this.uv = uv;
-        }
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-                View v = convertView;
-                if (v == null) {
-                    LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    v = vi.inflate(R.layout.list_item, null);
-                }
-                String item = items.get(position);
-                if (item != null) {
-                        TextView name = (TextView) v.findViewById(R.id.skin_name);                        
-                        if (name != null) name.setText(item);
-                }
-                if (uv != null){
-                	TextView u = (TextView) v.findViewById(R.id.uv);
-                	if (u != null) u.setText(uv);
-                }
-                       
-                return v;
-        }
-	
+		public MyAdapter(Activity context, int textViewResourceId,
+				String[] items, String uv) {
+			super(context, textViewResourceId, items);
+			this.items = items;
+			this.uv = uv;
+			this.context = context;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			
+			LayoutInflater inflater = context.getLayoutInflater();
+			View rowView = inflater.inflate(R.layout.list_item, null, true);
+			TextView name = (TextView) rowView.findViewById(R.id.skin_name);
+			TextView u = (TextView) rowView.findViewById(R.id.uv);
+			
+			name.setText(items[position]);
+			u.setText(uv);
+			
+			
+			return rowView;
+			
+//			View v = convertView;
+//			if (v == null) {
+//				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//				v = vi.inflate(R.layout.list_item, null);
+//			}
+//			String item = items[position];
+//			if (item != null) {
+//				TextView name = (TextView) v.findViewById(R.id.skin_name);
+//				if (name != null)
+//					name.setText(item);
+//				
+//			}
+//			
+//
+//			return v;
+		}
+
 	}
 }

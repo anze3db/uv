@@ -4,12 +4,15 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="fill_parent" android:layout_height="fill_parent"
-		android:padding="30dp" android:textSize="16sp" android:id="@+id/skin_name">
+		android:layout_width="wrap_content" android:layout_height="fill_parent"
+		android:padding="30dp" android:textSize="16sp" android:id="@+id/skin_name"
+		android:textColor="#11F" android:background="#0FF">
 	</TextView>
-	<TextView android:layout_height="wrap_content"
-		android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
-		android:text="TextView" android:id="@+id/uv" android:gravity="right"></TextView>
+	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent" android:layout_height="fill_parent"
+		android:padding="10dp" android:textSize="32sp" android:id="@+id/uv"
+		android:textColor="#11F" android:layout_gravity="fill_horizontal" android:gravity="right|center_vertical">
+	</TextView>
 
 </LinearLayout>
     

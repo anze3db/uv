@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,19 +31,18 @@ public class UvActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setContentView(R.layout.main);
+
 		setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item,
-				SKIN_TYPES));
+				R.id.skin_name, SKIN_TYPES));
 
 		ListView lv = getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(getApplicationContext(),
-						((TextView) view).getText(), Toast.LENGTH_SHORT).show();
 			}
 		});
 
-		setContentView(R.layout.main);
 		TextView label = (TextView) findViewById(R.id.label);
 		label.setText("GETTING LOCATION");
 

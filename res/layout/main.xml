@@ -3,8 +3,8 @@
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
 	<TextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="@string/hello"
-		android:id="@+id/label" />
+		android:layout_height="wrap_content" android:text="@string/top_text"
+		android:padding="10px" android:id="@+id/label" android:background="#222" />
 	<ListView android:id="@android:id/list" android:layout_width="match_parent"
 		android:layout_height="match_parent"></ListView>
 </LinearLayout>

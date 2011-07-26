@@ -42,9 +42,9 @@ public class UvActivity extends ListActivity {
 			}
 		});
 
-		// setContentView(R.layout.main);
-		// TextView label = (TextView) findViewById(R.id.label);
-		// label.setText("GETTING LOCATION");
+		setContentView(R.layout.main);
+		TextView label = (TextView) findViewById(R.id.label);
+		label.setText("GETTING LOCATION");
 
 		getLocation();
 
@@ -114,9 +114,9 @@ public class UvActivity extends ListActivity {
 	}
 
 	public void gotLocation(Location location) {
-		// TextView label = (TextView) findViewById(R.id.label);
 
-		// getData(location.getLatitude(), location.getLongitude());
+		TextView label = (TextView) findViewById(R.id.label);
+		getData(location.getLatitude(), location.getLongitude());
 
 		/*
 		 * label.setText("GOT LOCATION: Accuracy: " +

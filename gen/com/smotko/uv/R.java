@@ -21,8 +21,8 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
+        public static final int item=0x7f070000;
         public static final int label=0x7f070003;
-        public static final int linearLayout1=0x7f070000;
         public static final int skin_name=0x7f070001;
         public static final int uv=0x7f070002;
     }

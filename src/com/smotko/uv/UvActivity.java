@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class UvActivity extends ListActivity {
@@ -143,9 +144,10 @@ public class UvActivity extends ListActivity {
 			View rowView = inflater.inflate(R.layout.list_item, null, true);
 			TextView name = (TextView) rowView.findViewById(R.id.skin_name);
 			TextView u = (TextView) rowView.findViewById(R.id.uv);
+			LinearLayout l = (LinearLayout) rowView.findViewById(R.id.item);
 			
 			name.setText(items[position]);
-			name.setBackgroundColor(getResources().getIntArray(R.array.skin_colors)[position]);
+			l.setBackgroundColor(getResources().getIntArray(R.array.skin_colors)[position]);
 			
 			u.setText(uv);
 			

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/linearLayout1"
+
+<LinearLayout android:id="@+id/item"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="wrap_content" android:layout_height="fill_parent"
 		android:padding="30dp" android:textSize="16sp" android:id="@+id/skin_name"
-		android:textColor="#11F">
+		android:textColor="#222">
 	</TextView>
 	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="match_parent" android:layout_height="fill_parent"
 		android:padding="10dp" android:textSize="32sp" android:id="@+id/uv"
-		android:textColor="#11F" android:layout_gravity="fill_horizontal"
+		android:textColor="#222" android:layout_gravity="fill_horizontal"
 		android:gravity="right|center_vertical">
 	</TextView>
 

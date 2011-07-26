@@ -11,12 +11,12 @@
         <item>Skin type 6</item>        
     </string-array>
     <integer-array name="skin_colors">
-        <item>0xFF0000FF</item>
-        <item>0xFF00FF00</item>
-        <item>0xFFFF0000</item>
-        <item>0xFF00FF00</item>
-        <item>0xFF00FF00</item>
-        <item>0xFF00FF00</item>     
+        <item>0xFFfffaff</item>
+        <item>0xFFfff2ee</item>
+        <item>0xFFf6e6c5</item>
+        <item>0xFFeee2ac</item>
+        <item>0xFF9c6941</item>
+        <item>0xFF623020</item>     
     </integer-array>
     <color name="skin_type_1">#F00</color>
 </resources>

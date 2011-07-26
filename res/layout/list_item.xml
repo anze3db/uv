@@ -7,6 +7,9 @@
 		android:layout_width="fill_parent" android:layout_height="fill_parent"
 		android:padding="30dp" android:textSize="16sp" android:id="@+id/skin_name">
 	</TextView>
-	
+	<TextView android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="TextView" android:id="@+id/uv" android:gravity="right"></TextView>
+
 </LinearLayout>
     

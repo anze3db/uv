@@ -4,25 +4,47 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import android.app.Activity;
+
+import android.app.ListActivity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class UvActivity extends Activity {
+public class UvActivity extends ListActivity {
 
 	private final String UV_URL = "http://www.temis.nl/uvradiation/nrt/uvindex.php?";
+	private final String[] SKIN_TYPES = new String[] { "Skin type 1",
+			"Skin type 2", "Skin type 3" };
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-		TextView label = (TextView) findViewById(R.id.label);
-		label.setText("GETTING LOCATION");
+
+		setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item,
+				SKIN_TYPES));
+
+		ListView lv = getListView();
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Toast.makeText(getApplicationContext(),
+						((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		// setContentView(R.layout.main);
+		// TextView label = (TextView) findViewById(R.id.label);
+		// label.setText("GETTING LOCATION");
 
 		getLocation();
 
@@ -92,9 +114,9 @@ public class UvActivity extends Activity {
 	}
 
 	public void gotLocation(Location location) {
-		TextView label = (TextView) findViewById(R.id.label);
+		// TextView label = (TextView) findViewById(R.id.label);
 
-		getData(location.getLatitude(), location.getLongitude());
+		// getData(location.getLatitude(), location.getLongitude());
 
 		/*
 		 * label.setText("GOT LOCATION: Accuracy: " +

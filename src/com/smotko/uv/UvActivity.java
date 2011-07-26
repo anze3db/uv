@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -11,13 +12,13 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class UvActivity extends ListActivity {
@@ -40,6 +41,8 @@ public class UvActivity extends ListActivity {
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+			
+				
 			}
 		});
 
@@ -126,4 +129,32 @@ public class UvActivity extends ListActivity {
 		 * Double.toString(location.getAltitude()));
 		 */
 	}
+	
+	private class OrderAdapter extends ArrayAdapter<Skin> {
+
+        private ArrayList<Skin> items;
+
+        public SkinAdapter(Context context, int textViewResourceId, ArrayList<Skin> items) {
+                super(context, textViewResourceId, items);
+                this.items = items;
+        }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+                View v = convertView;
+                if (v == null) {
+                    LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    v = vi.inflate(R.layout.row, null);
+                }
+                Skin o = items.get(position);
+                if (o != null) {
+                        TextView tt = (TextView) v.findViewById(R.id.toptext);
+                        TextView bt = (TextView) v.findViewById(R.id.bottomtext);
+                        if (tt != null) {
+                              tt.setText("Name: "+o.getSkinName());                            }
+                        if(bt != null){
+                              bt.setText("Status: "+ o.getSkinStatus());
+                        }
+                }
+                return v;
+        }
 }

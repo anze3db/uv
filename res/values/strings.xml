@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Skin saver</string>
     <string name="top_text">Hi there, I am trying to save your skin!</string>
-    <string-array name="skins">
+    <string-array name="skin_names">
         <item>Skin type 1</item>
         <item>Skin type 2</item>
         <item>Skin type 3</item>
@@ -10,4 +10,13 @@
         <item>Skin type 5</item>
         <item>Skin type 6</item>        
     </string-array>
+    <integer-array name="skin_colors">
+        <item>0xFF0000FF</item>
+        <item>0xFF00FF00</item>
+        <item>0xFFFF0000</item>
+        <item>0xFF00FF00</item>
+        <item>0xFF00FF00</item>
+        <item>0xFF00FF00</item>     
+    </integer-array>
+    <color name="skin_type_1">#F00</color>
 </resources>

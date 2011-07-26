@@ -29,7 +29,7 @@ public class UvActivity extends ListActivity {
 
 		setContentView(R.layout.main);
 
-		setListAdapter(new MyAdapter(this, R.layout.list_item, getResources().getStringArray(R.array.skins), "30"));
+		setListAdapter(new MyAdapter(this, R.layout.list_item, getResources().getStringArray(R.array.skin_names), "30"));
 
 //		ListView lv = getListView();
 //		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -145,6 +145,8 @@ public class UvActivity extends ListActivity {
 			TextView u = (TextView) rowView.findViewById(R.id.uv);
 			
 			name.setText(items[position]);
+			name.setBackgroundColor(getResources().getIntArray(R.array.skin_colors)[position]);
+			
 			u.setText(uv);
 			
 			

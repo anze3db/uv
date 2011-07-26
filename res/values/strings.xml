@@ -2,4 +2,12 @@
 <resources>
     <string name="app_name">Skin saver</string>
     <string name="top_text">Hi there, I am trying to save your skin!</string>
+    <string-array name="skins">
+        <item>Skin type 1</item>
+        <item>Skin type 2</item>
+        <item>Skin type 3</item>
+        <item>Skin type 4</item>
+        <item>Skin type 5</item>
+        <item>Skin type 6</item>        
+    </string-array>
 </resources>

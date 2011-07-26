@@ -21,8 +21,6 @@ import android.widget.TextView;
 public class UvActivity extends ListActivity {
 
 	private final String UV_URL = "http://www.temis.nl/uvradiation/nrt/uvindex.php?";
-	private final String[] SKIN_TYPES = new String[] { "Skin type 1",
-			"Skin type 2", "Skin type 3" };
 
 	/** Called when the activity is first created. */
 	@Override
@@ -31,7 +29,7 @@ public class UvActivity extends ListActivity {
 
 		setContentView(R.layout.main);
 
-		setListAdapter(new MyAdapter(this, R.layout.list_item, SKIN_TYPES, "30"));
+		setListAdapter(new MyAdapter(this, R.layout.list_item, getResources().getStringArray(R.array.skins), "30"));
 
 //		ListView lv = getListView();
 //		lv.setOnItemClickListener(new OnItemClickListener() {
